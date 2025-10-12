@@ -1,4 +1,4 @@
-package main
+package minStack
 
 import (
 	"github.com/cooperstandard/leetcode/datastructures"
@@ -27,7 +27,7 @@ func (this *MinStack) Push(val int) {
 }
 
 func (this *MinStack) Pop() {
-	pop, _ := this.stack.Pop()
+	pop := this.stack.Pop()
 	if pop < 0 {
 		this.min -= pop
 	}
@@ -35,7 +35,7 @@ func (this *MinStack) Pop() {
 }
 
 func (this *MinStack) Top() int {
-	top, _ := this.stack.Peek()
+	top := this.stack.Peek()
 	if top > 0 {
 		return top + this.min
 	}

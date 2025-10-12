@@ -1,7 +1,7 @@
 package datastructures
 
 type Stack[T any] struct {
-	items []T
+	Items []T
 }
 
 func NewStack[T any]() *Stack[T] {
@@ -9,29 +9,29 @@ func NewStack[T any]() *Stack[T] {
 }
 
 func (s *Stack[T]) Push(e T) {
-	s.items = append(s.items, e)
+	s.Items = append(s.Items, e)
 }
 
 func (s *Stack[T]) IsEmpty() bool {
-	return len(s.items) == 0
+	return len(s.Items) == 0
 }
 
-func (s *Stack[T]) Peek() (T, bool) {
+func (s *Stack[T]) Peek() T {
 	if s.IsEmpty() {
-		return *new(T), false
+		return *new(T)
 	}
 
-	return s.items[len(s.items)-1], true
+	return s.Items[len(s.Items)-1]
 
 }
 
-func (s *Stack[T]) Pop() (T, bool) {
+func (s *Stack[T]) Pop() T {
 	if s.IsEmpty() {
-		return *new(T), false
+		return *new(T)
 	}
 
-	top := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return top, true
+	top := s.Items[len(s.Items)-1]
+	s.Items = s.Items[:len(s.Items)-1]
+	return top
 
 }
