@@ -27,8 +27,7 @@ func (s *Stack[T]) Peek() (T, bool) {
 
 func (s *Stack[T]) Pop() (T, bool) {
 	if s.IsEmpty() {
-		var noop T
-		return noop, false
+		return *new(T), false
 	}
 
 	top := s.items[len(s.items)-1]
